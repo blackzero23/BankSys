@@ -44,5 +44,8 @@
     <ClInclude Include="HighCreditAccount.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="MiniBankingCommonDecl.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,6 +1,5 @@
-#include "Account.h"
-#include <iostream>
-#include <cstring>
+#include"MiniBankingCommonDecl.h"
+
 using namespace std;
 
 

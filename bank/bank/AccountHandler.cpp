@@ -1,9 +1,5 @@
-#include <iostream>
-#include "AccountHandler.h"
-#include "Account.h"
-#include "NormalAccount.h"
-#include "HighCreditAccount.h"
-#include <ctype.h>
+#include"MiniBankingCommonDecl.h"
+
 
 using namespace std;
 

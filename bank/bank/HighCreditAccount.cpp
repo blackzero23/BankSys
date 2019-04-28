@@ -1,5 +1,4 @@
-#include "HighCreditAccount.h"
-#include<iostream>
+#include"MiniBankingCommonDecl.h"
 
 using namespace std;
 
@@ -12,7 +11,7 @@ HighCreditAccount::HighCreditAccount(int newID, int creditRating,
 
 void HighCreditAccount::SetDepositMoney(int newMoney)
 {
-	balance += newMoney + (balance * (interestRate + AddinterestRate));
+	balance += newMoney +(int)(balance * (interestRate + AddinterestRate));
 }
 
 void HighCreditAccount::ShowAccountInfo() const

@@ -2,7 +2,7 @@
 #define HIGHCREDITACCOUNT__H_
 
 
-#include "NormalAccount.h"
+#include"MiniBankingCommonDecl.h"
 
 class HighCreditAccount :public NomalAccount
 {

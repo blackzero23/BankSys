@@ -2,7 +2,7 @@
 #define NORMALACCOUNT__H_
 //보통예금 계좌 entity 클래스
 //
-#include "Account.h"
+#include"MiniBankingCommonDecl.h"
 
 class NomalAccount :public Account
 {

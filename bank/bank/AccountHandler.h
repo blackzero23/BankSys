@@ -1,7 +1,7 @@
 #ifndef _BANK_H
 #define _BANK_H
 
-#include "Account.h"
+#include"MiniBankingCommonDecl.h"
 
 const int ACCOUNT_MAX = 100; //계좌 최대 개설수.
 //const int NAME_LEN = 20;

@@ -1,5 +1,4 @@
-#include <iostream>
-#include "NormalAccount.h"
+#include"MiniBankingCommonDecl.h"
 
 
 using namespace std;
@@ -11,7 +10,7 @@ NomalAccount::NomalAccount(int newID, char* newCusName)
 
 void NomalAccount::SetDepositMoney(int newMoney)
 {
-	balance += newMoney + (balance * interestRate);	
+	balance += newMoney + (int)(balance * interestRate);	
 }
 
 double NomalAccount::GetinterestRate()
