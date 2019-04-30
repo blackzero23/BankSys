@@ -11,13 +11,16 @@ enum { NORMAL = 1, CREDIT = 2 };
 
 AccountHandler::AccountHandler() :accCnt(0)
 {
+	accounts = new ACOUNT_PTR[50];
 }
 
 
 
 AccountHandler::AccountHandler(const AccountHandler& rhs) : accCnt(rhs.accCnt)//복사 생성자.
 {
+	
 	if (rhs.accCnt != 0) {
+		accounts = new ACOUNT_PTR[50];
 		for (int i = 0; i < rhs.accCnt; i++) {
 			this->accounts[i] = new Account(
 				rhs.accounts[i]->GetAccID()
@@ -35,6 +38,7 @@ AccountHandler& AccountHandler::operator=(const AccountHandler& rhs)
 	this->accCnt = rhs.accCnt;
 
 	if (rhs.accCnt != 0) {
+		accounts = new ACOUNT_PTR[50];
 		for (int i = 0; i < rhs.accCnt; i++) {
 			this->accounts[i] = new Account(
 				rhs.accounts[i]->GetAccID()
@@ -52,6 +56,29 @@ AccountHandler::~AccountHandler()
 	if (accCnt != 0)
 		for (int i = 0; i < accCnt; i++)
 			delete accounts[i];
+}
+
+
+//연산자 오버로딩
+ACOUNT_PTR& AccountHandler::operator[](int idx)
+{
+	if (idx < 0 || idx >= accCnt)
+	{
+		cout << "배열의 범위를 벗어났습니다." << endl;
+		exit(1);
+	}
+
+	return  accounts[idx];
+}
+ACOUNT_PTR& AccountHandler::operator[](int idx) const
+{
+	if (idx < 0 || idx >= accCnt)
+	{
+		cout << "배열의 범위를 벗어났습니다." << endl;
+		exit(1);
+	}
+
+	return accounts[idx];
 }
 
 
@@ -87,7 +114,7 @@ bool AccountHandler::MakeAccount(void)
 		return false; //100개이상이면 개설 못함.
 
 	int AccountNum;//계좌 번호
-	char AccountCusName[NAME_LEN];//이름
+	String AccountCusName;//이름
 
 	cout << "----계좌 개설----" << endl;
 	//나중에는 자동 랜덤 생성으로 만들어보자.
@@ -231,6 +258,8 @@ void AccountHandler::GetAccountInfoAll(void) const
 		accounts[i]->ShowAccountInfo();
 		cout << "\n";
 	}
+
+	//cout << sizeof(accounts) << endl;
 }
 
 

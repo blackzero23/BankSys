@@ -6,7 +6,8 @@ using namespace std;
 #include<iostream>
 #include <ctype.h>
 #include <cstring>
-#include<string>
+#include"String.h"
+
 
 #include "Account.h"
 #include "NormalAccount.h"

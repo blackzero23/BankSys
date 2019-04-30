@@ -4,7 +4,7 @@
 #include"MiniBankingCommonDecl.h"
 
 //typedef Point* POINT_PTR;
-//typedef Account* ACOUNT_PTR;
+typedef Account* ACOUNT_PTR;
 
 
 const int ACCOUNT_MAX = 100; //계좌 최대 개설수.
@@ -13,7 +13,7 @@ const int ACCOUNT_MAX = 100; //계좌 최대 개설수.
 class AccountHandler
 {
 private:
-	Account* accounts[ACCOUNT_MAX]; //계좌들
+	ACOUNT_PTR* accounts; //계좌들
 	//이렇게 선언된것이 잘못될 가능성 매우 높음.
 
 	int accCnt; //계좌 개설 수.
@@ -28,6 +28,13 @@ public:
 	AccountHandler& operator=(const AccountHandler& rhs);//단순 대입 연산자.
 
 	~AccountHandler();
+
+
+	//연산자 오버로딩
+
+	ACOUNT_PTR& operator[] (int idx);
+
+	ACOUNT_PTR& operator[] (int idx) const;
 
 	//전체메뉴 오픈
 	void ShowBankMenu(void);

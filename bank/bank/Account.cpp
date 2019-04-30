@@ -4,16 +4,24 @@ using namespace std;
 
 
 //°³¼³
-Account::Account(int newID, string newCusName) : balance(0)
+Account::Account(int newID, String newCusName) : balance(0)
 {
 	accID = newID;
 	cusName = newCusName;
 }
 
-Account::Account(int newID, int newMoney, string newCusName)
+Account::Account(int newID, int newMoney, String newCusName)
 {
 	accID = newID;
+	balance = newMoney;
 	cusName = newCusName;
+}
+
+Account::Account(Account& ac)
+{
+	accID = ac.accID;
+	balance = ac.balance;
+	cusName = ac.cusName;
 }
 
 //
@@ -48,7 +56,7 @@ int Account::GetMoney() const
 	return balance;
 }
 
-string Account::GetAccName() const
+String Account::GetAccName() const
 {
 	return cusName;
 }

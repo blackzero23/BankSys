@@ -12,7 +12,7 @@ protected:
 	double AddinterestRate; //추가 이율
 public:
 	//초기화 시 입금되는 금액에는 이율 계산 안함.
-	HighCreditAccount(int newID, int creditRating, string newCusName);
+	HighCreditAccount(int newID, int creditRating, String newCusName);
 	
 	
 	//이후 입금 시에만 이율 계산.

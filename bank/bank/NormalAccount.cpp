@@ -3,7 +3,7 @@
 
 using namespace std;
 
-NomalAccount::NomalAccount(int newID, string newCusName)
+NomalAccount::NomalAccount(int newID, String newCusName)
 	:Account(newID, newCusName), interestRate(0.03)
 {
 }
