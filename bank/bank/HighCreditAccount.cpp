@@ -4,14 +4,14 @@ using namespace std;
 
 HighCreditAccount::HighCreditAccount(int newID, int creditRating,
 					char* newCusName):NomalAccount(newID,newCusName)
-	,AddinterestRate((double)creditRating/100)
+	,AddinterestRate(static_cast<double>(creditRating)/100)
 {
 	cusCreditRating = creditRating;
 }
 
 void HighCreditAccount::SetDepositMoney(int newMoney)
 {
-	balance += newMoney +(int)(balance * (interestRate + AddinterestRate));
+	balance += newMoney + static_cast<int>(balance * (interestRate + AddinterestRate));
 }
 
 void HighCreditAccount::ShowAccountInfo() const

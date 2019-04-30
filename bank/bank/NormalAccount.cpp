@@ -10,7 +10,7 @@ NomalAccount::NomalAccount(int newID, char* newCusName)
 
 void NomalAccount::SetDepositMoney(int newMoney)
 {
-	balance += newMoney + (int)(balance * interestRate);	
+	balance += newMoney + static_cast<int>(balance * interestRate);	
 }
 
 double NomalAccount::GetinterestRate()

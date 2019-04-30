@@ -20,7 +20,7 @@ public:
 	void SetDepositMoney(int newMoney);
 
 	//계좌 고객 정보 보여주기
-	void ShowAccountInfo() const;
+	virtual void ShowAccountInfo() const;
 	
 	//소멸자
 	~HighCreditAccount();
