@@ -3,6 +3,10 @@
 
 #include"MiniBankingCommonDecl.h"
 
+//typedef Point* POINT_PTR;
+//typedef Account* ACOUNT_PTR;
+
+
 const int ACCOUNT_MAX = 100; //계좌 최대 개설수.
 //const int NAME_LEN = 20;
 

@@ -3,10 +3,11 @@
 
 using namespace std;
 
-NomalAccount::NomalAccount(int newID, char* newCusName)
+NomalAccount::NomalAccount(int newID, string newCusName)
 	:Account(newID, newCusName), interestRate(0.03)
 {
 }
+
 
 void NomalAccount::SetDepositMoney(int newMoney)
 {

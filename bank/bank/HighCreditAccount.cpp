@@ -3,7 +3,7 @@
 using namespace std;
 
 HighCreditAccount::HighCreditAccount(int newID, int creditRating,
-					char* newCusName):NomalAccount(newID,newCusName)
+					string newCusName):NomalAccount(newID,newCusName)
 	,AddinterestRate(static_cast<double>(creditRating)/100)
 {
 	cusCreditRating = creditRating;

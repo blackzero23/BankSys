@@ -4,22 +4,16 @@ using namespace std;
 
 
 //°³¼³
-Account::Account(int newID, char* newCusName) : balance(0)
+Account::Account(int newID, string newCusName) : balance(0)
 {
 	accID = newID;
-	int len = strlen(newCusName);
-	cusName = new char[len+1];
-	strcpy_s(cusName, len+1, newCusName);
+	cusName = newCusName;
 }
 
-Account::Account(int newID, int newMoney, char* newCusName)
+Account::Account(int newID, int newMoney, string newCusName)
 {
 	accID = newID;
-	int len = strlen(newCusName);
-
-	balance = newMoney;
-	cusName = new char[len + 1];
-	strcpy_s(cusName, len+1 , newCusName);
+	cusName = newCusName;
 }
 
 //
@@ -54,7 +48,7 @@ int Account::GetMoney() const
 	return balance;
 }
 
-char* Account::GetAccName() const
+string Account::GetAccName() const
 {
 	return cusName;
 }

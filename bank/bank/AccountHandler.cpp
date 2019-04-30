@@ -22,7 +22,7 @@ AccountHandler::AccountHandler(const AccountHandler& rhs) : accCnt(rhs.accCnt)//
 			this->accounts[i] = new Account(
 				rhs.accounts[i]->GetAccID()
 				, rhs.accounts[i]->GetMoney()
-				,rhs.accounts[i]->GetAccName());
+				, rhs.accounts[i]->GetAccName());
 		}
 
 	}
@@ -31,7 +31,7 @@ AccountHandler::AccountHandler(const AccountHandler& rhs) : accCnt(rhs.accCnt)//
 
 AccountHandler& AccountHandler::operator=(const AccountHandler& rhs)
 {
-	
+
 	this->accCnt = rhs.accCnt;
 
 	if (rhs.accCnt != 0) {
@@ -49,8 +49,8 @@ AccountHandler& AccountHandler::operator=(const AccountHandler& rhs)
 
 AccountHandler::~AccountHandler()
 {
-	if(accCnt !=0)
-		for(int i = 0; i < accCnt;i++)
+	if (accCnt != 0)
+		for (int i = 0; i < accCnt; i++)
 			delete accounts[i];
 }
 
@@ -78,8 +78,8 @@ bool AccountHandler::MakeAccount(void)
 
 	cout << '\n';
 	ShowAccountKindMenu();
-	cout << '\n'<<"선택 : ";
-		
+	cout << '\n' << "선택 : ";
+
 	cin >> choice;
 
 
@@ -107,7 +107,7 @@ bool AccountHandler::MakeAccount(void)
 			return false;
 		}
 	}
-	
+
 	cout << "개설하신분 이름을 입력해주세요.";
 	cin >> AccountCusName;
 
@@ -127,13 +127,13 @@ bool AccountHandler::MakeAccount(void)
 		switch (choice)
 		{
 		case 1:
-			accounts[accCnt] = new HighCreditAccount(AccountNum,LEVEL_A,AccountCusName);
+			accounts[accCnt] = new HighCreditAccount(AccountNum, LEVEL_A, AccountCusName);
 			break;
 		case 2:
-			accounts[accCnt] = new HighCreditAccount(AccountNum,LEVEL_B,AccountCusName);
+			accounts[accCnt] = new HighCreditAccount(AccountNum, LEVEL_B, AccountCusName);
 			break;
 		case 3:
-			accounts[accCnt] = new HighCreditAccount(AccountNum,LEVEL_C,AccountCusName);
+			accounts[accCnt] = new HighCreditAccount(AccountNum, LEVEL_C, AccountCusName);
 			break;
 		default:
 			break;
@@ -142,7 +142,7 @@ bool AccountHandler::MakeAccount(void)
 	default:
 		break;
 	}
-	 
+
 
 	accCnt++;//개설수 증가.
 	return true;
@@ -171,7 +171,7 @@ void AccountHandler::DepositMoney(void)
 
 	for (int i = 0; i < accCnt; i++) {
 		if (accounts[i]->CheckAccountID(AccountNum)) {
-			
+
 			cout << "현제 잔액 정보 : " <<
 				accounts[i]->GetMoney() << endl;
 
@@ -183,7 +183,7 @@ void AccountHandler::DepositMoney(void)
 		else
 			cout << "잘못된 계좌정보입니다." << endl;
 	}
-		
+
 }
 //출금
 void AccountHandler::WithdrawMoney(void)
@@ -193,7 +193,7 @@ void AccountHandler::WithdrawMoney(void)
 
 	cout << "[출금]" << endl;
 	cout << "계좌번호 : "; cin >> AccountNum;
-	
+
 	if (cin.fail()) {
 		cout << "문자는 포함이 안됩니다." << endl;
 		cin.clear(); //오류 스트림초기화
@@ -203,11 +203,11 @@ void AccountHandler::WithdrawMoney(void)
 
 	for (int i = 0; i < accCnt; i++) {
 		if (accounts[i]->CheckAccountID(AccountNum)) {
-			cout << "현제 잔액 정보 : "<<
-				accounts[i]->GetMoney() <<endl;
+			cout << "현제 잔액 정보 : " <<
+				accounts[i]->GetMoney() << endl;
 
 			cout << "출금 액 : "; cin >> money;
-			
+
 			if (accounts[i]->GetMoney() < money) {
 				cout << "잔액이 부족합니다." << endl << endl;
 				return;
