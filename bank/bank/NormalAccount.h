@@ -9,9 +9,9 @@ class NomalAccount :public Account
 protected:
 	double interestRate;//이율정보. 초기화 할때 0.03 으로 고정.
 public:
-	NomalAccount(int newID, String newCusName); //초기화
+	NomalAccount(const int newID,const String newCusName); //초기화
 	//입금하다.
-	void SetDepositMoney(int newMoney);
+	void SetDepositMoney(const int newMoney);
 	
 	//현재 이율 정보
 	double GetinterestRate();

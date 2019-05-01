@@ -3,13 +3,13 @@
 
 using namespace std;
 
-NomalAccount::NomalAccount(int newID, String newCusName)
+NomalAccount::NomalAccount(const int newID,const String newCusName)
 	:Account(newID, newCusName), interestRate(0.03)
 {
 }
 
 
-void NomalAccount::SetDepositMoney(int newMoney)
+void NomalAccount::SetDepositMoney(const int newMoney)
 {
 	balance += newMoney + static_cast<int>(balance * interestRate);	
 }
