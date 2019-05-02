@@ -4,8 +4,20 @@
 using namespace std;
 
 NomalAccount::NomalAccount(const int newID,const String newCusName)
-	:Account(newID, newCusName), interestRate(0.03)
+	:Account(newID, newCusName), interestRate(0.03),isNomalAccount(true)
 {
+}
+
+NomalAccount::NomalAccount(const int newID, const int balance, const String newCusName)
+	: Account(newID, newCusName),interestRate(0.03), isNomalAccount(true)
+{
+	this->balance += balance;
+}
+
+bool NomalAccount::checkIsNomalAccout() //체크 종류  함수
+{
+
+	return isNomalAccount;
 }
 
 

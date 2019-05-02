@@ -26,7 +26,11 @@ public:
 
 	void InitData();//은행 데이터 초기화.
 
-	void LoadCusListFromFile();
+	void LoadCusListFromFile();//초기화 함수
+
+	void SaveCusInfoList();//백업 함수
+
+	void LoadCusInfoList();//복구함수
 	
 	AccountHandler& operator=(const AccountHandler& rhs);//단순 대입 연산자.
 

@@ -3,10 +3,27 @@
 using namespace std;
 
 HighCreditAccount::HighCreditAccount(int newID, int creditRating,
-					String newCusName):NomalAccount(newID,newCusName)
-	,AddinterestRate(static_cast<double>(creditRating)/100)
+	String newCusName) :NomalAccount(newID, newCusName)
+	, AddinterestRate(static_cast<double>(creditRating) / 100)
 {
+	isNomalAccount = false;
 	cusCreditRating = creditRating;
+}
+
+HighCreditAccount::HighCreditAccount(int newID, int creditRating, int balance, String newCusName)
+	:NomalAccount(newID, newCusName)
+	, AddinterestRate(static_cast<double>(creditRating) / 100)
+{
+	this->balance += balance;
+	isNomalAccount = false;
+	cusCreditRating = creditRating;
+}
+
+
+
+bool HighCreditAccount::checkIsNomalAccout()
+{
+	return isNomalAccount;
 }
 
 void HighCreditAccount::SetDepositMoney(int newMoney)
@@ -18,6 +35,11 @@ void HighCreditAccount::SetDepositMoney(int newMoney)
 	}
 
 	balance += newMoney + static_cast<int>(balance * (interestRate + AddinterestRate));
+}
+
+int HighCreditAccount::GetcusCreditRating()
+{
+	return cusCreditRating;
 }
 
 void HighCreditAccount::ShowAccountInfo() const

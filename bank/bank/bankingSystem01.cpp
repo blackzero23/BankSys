@@ -14,7 +14,7 @@ int main(void)
 	AccountHandler* CopyKorea = new AccountHandler();
 
 	int choice;
-
+	KoreaBank->InitData(); //ÃÊ±âÈ­
 	while (1)
 	{
 		KoreaBank->ShowBankMenu();

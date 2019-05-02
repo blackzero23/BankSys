@@ -25,6 +25,9 @@ public:
 	//복사 생성자
 	Account(Account& ac);
 
+	//종류 체크함수
+	virtual bool checkIsNomalAccout();
+
 	//입금하다.
 	virtual void SetDepositMoney(int newMoney);
 	//출금하다.
@@ -37,6 +40,10 @@ public:
 	int GetMoney() const;
 	//계좌 주인 이름
 	String GetAccName() const;
+
+	//신용등급
+	virtual int GetcusCreditRating();
+
 
 	//계좌 정보 보여주기
 	virtual void ShowAccountInfo() const;

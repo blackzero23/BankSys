@@ -7,12 +7,19 @@
 class NomalAccount :public Account
 {
 protected:
+	bool isNomalAccount;
 	double interestRate;//이율정보. 초기화 할때 0.03 으로 고정.
 public:
 	NomalAccount(const int newID,const String newCusName); //초기화
+	NomalAccount(const int newID, const int balance ,const String newCusName); //초기화
+														   
+	//종류 체크 함수
+	virtual bool checkIsNomalAccout();
 	//입금하다.
 	void SetDepositMoney(const int newMoney);
 	
+
+
 	//현재 이율 정보
 	double GetinterestRate();
 

@@ -24,6 +24,11 @@ Account::Account(Account& ac)
 	cusName = ac.cusName;
 }
 
+bool Account::checkIsNomalAccout()
+{
+	return true;
+}
+
 //
 
 //ют╠щ
@@ -66,6 +71,12 @@ String Account::GetAccName() const
 {
 	return cusName;
 }
+
+int Account::GetcusCreditRating()
+{
+	return 0;
+}
+
 
 void Account::ShowAccountInfo() const
 {

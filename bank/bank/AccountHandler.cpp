@@ -33,10 +33,10 @@ AccountHandler::AccountHandler(const AccountHandler& rhs) : accCnt(rhs.accCnt)//
 
 void AccountHandler::InitData()
 {
-	LoadCusListFromFile(); //계좌 구분없이 총 계좌 정보 로드.
+	LoadCusInfoList();//계좌 구분없이 총 계좌 정보 로드.
 }
 
-void AccountHandler::LoadCusListFromFile()
+void AccountHandler::LoadCusListFromFile() //초기화 읽어오기
 {
 	fstream fp;//파일을 열고
 	fp.open("AccountCusInfo.txt", ios::out);//파일 을 읽는다
@@ -48,13 +48,82 @@ void AccountHandler::LoadCusListFromFile()
 		exit(1);
 	}
 
-	fp ;
+	fp.close();
 	//파일을 열고
 	//파일 을 읽는다
 	// 저장되어있는 고객수를 읽어온다.
 	//읽어온 고객수만큼 계좌 클래스 크기만큼 읽고 객체 생성하고
 	// 끝가지 또 읽는다.
 }
+
+void AccountHandler::SaveCusInfoList() //백업 함수.
+{
+
+	ofstream fp("AccountCusInfo.txt",ios::in|ios::out);
+
+	if (!fp.is_open()) {
+		cout << "파일을 열수 없습니다." << endl;
+		fp.clear();
+		exit(1);
+	}
+	
+	fp << accCnt<<endl;
+
+	for (int i = 0; i < accCnt; i++) {
+		
+		fp << accounts[i]->checkIsNomalAccout() //노말 체크
+			<< accounts[i]->GetAccID() //계좌 번호
+			<< accounts[i]->GetMoney() //잔액
+			<< accounts[i]->GetAccName(); //이름
+		if (accounts[i]->checkIsNomalAccout())//노말체크 노말이면 뛰우고 끝내고
+			fp << endl;
+		else//아니면 신용등급 적어준다.
+			fp << accounts[i]->GetcusCreditRating() << endl;
+	}
+	
+	fp.close();
+
+}
+
+void AccountHandler::LoadCusInfoList() //복구함수
+{
+	ifstream fp("AccountCusInfo.txt");
+	
+	if (!fp.is_open())
+	{
+		cout << "파일을 열수 없습니다." << endl;
+		exit(1);
+	}
+	fp >> accCnt;//갯수 받고
+	
+	bool checkKindAccount; //노말 체크
+	int accID; //계좌번호
+	int balance;//잔액
+	String cusName;//이름
+	int cusCreditRating;//추가이율
+
+	//NomalAccount::NomalAccount(const int newID, const int balance, const String newCusName)
+	//HighCreditAccount(int newID, int creditRating,int balance, String newCusName);
+	
+	for (int i = 0; i < accCnt; i++)
+	{
+		fp >> checkKindAccount
+		   >> accID
+		   >> balance
+		   >> cusName;
+		if (checkKindAccount) {
+			accounts[i] = new NomalAccount(accID, balance, cusName);
+		}
+		else {
+			fp >> cusCreditRating;
+			accounts[i] = new HighCreditAccount(accID, cusCreditRating, balance, cusName);
+		}
+	}
+
+	fp.close();
+}
+
+
 
 
 AccountHandler& AccountHandler::operator=(const AccountHandler& rhs)
@@ -201,13 +270,18 @@ bool AccountHandler::MakeAccount(void)
 		default:
 			break;
 		}
+
+
+				
 		break;
 	default:
 		break;
 	}
-
-
+	
 	accCnt++;//개설수 증가.
+
+	SaveCusInfoList(); //백업
+
 	return true;
 
 }
@@ -258,6 +332,7 @@ void AccountHandler::DepositMoney(void)
 			cout << "잘못된 계좌정보입니다." << endl;
 	}
 
+	SaveCusInfoList();//백업
 }
 //출금
 void AccountHandler::WithdrawMoney(void)
@@ -298,6 +373,7 @@ void AccountHandler::WithdrawMoney(void)
 			cout << "잘못된 계좌정보입니다." << endl;
 	}
 
+	SaveCusInfoList();//백업
 }
 
 //전체 고객 계좌 정보 조회 
