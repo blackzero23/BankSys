@@ -31,6 +31,31 @@ AccountHandler::AccountHandler(const AccountHandler& rhs) : accCnt(rhs.accCnt)//
 	}
 }
 
+void AccountHandler::InitData()
+{
+	LoadCusListFromFile(); //계좌 구분없이 총 계좌 정보 로드.
+}
+
+void AccountHandler::LoadCusListFromFile()
+{
+	fstream fp;//파일을 열고
+	fp.open("AccountCusInfo.txt", ios::out);//파일 을 읽는다
+	//ios::ate 만약 파일이 존재한다면 파일 끝으로 이동
+	//데이터는 아무데나 쓰기 가능
+	if (fp.fail())
+	{
+		cout << "파일 여는데 실패 하였습니다." << endl;
+		exit(1);
+	}
+
+	fp ;
+	//파일을 열고
+	//파일 을 읽는다
+	// 저장되어있는 고객수를 읽어온다.
+	//읽어온 고객수만큼 계좌 클래스 크기만큼 읽고 객체 생성하고
+	// 끝가지 또 읽는다.
+}
+
 
 AccountHandler& AccountHandler::operator=(const AccountHandler& rhs)
 {
@@ -70,6 +95,7 @@ ACOUNT_PTR& AccountHandler::operator[](int idx)
 
 	return  accounts[idx];
 }
+
 ACOUNT_PTR& AccountHandler::operator[](int idx) const
 {
 	if (idx < 0 || idx >= accCnt)
@@ -109,9 +135,19 @@ bool AccountHandler::MakeAccount(void)
 
 	cin >> choice;
 
-
-	if (accCnt >= 100)		 //개설수 체크
-		return false; //100개이상이면 개설 못함.
+	try {
+		if (accCnt >= 100)//개설수 체크. 100개이상이면 개설 못함.
+		{
+			MakeAccountException expn(accCnt);
+			throw expn;
+		}
+			 
+	}
+	catch(AccountException& expn)
+	{
+		expn.ShowExceptionReason();
+		return false;
+	}
 
 	int AccountNum;//계좌 번호
 	String AccountCusName;//이름
@@ -203,7 +239,18 @@ void AccountHandler::DepositMoney(void)
 				accounts[i]->GetMoney() << endl;
 
 			cout << "입금액 : "; cin >> money;
-			accounts[i]->SetDepositMoney(money);
+			
+			try {
+				accounts[i]->SetDepositMoney(money);
+			}
+			catch(AccountException& expn)
+			{
+				expn.ShowExceptionReason();
+				--i;
+				continue;
+			}
+
+
 			cout << "입금 완료" << endl;
 			return;
 		}
@@ -234,13 +281,16 @@ void AccountHandler::WithdrawMoney(void)
 				accounts[i]->GetMoney() << endl;
 
 			cout << "출금 액 : "; cin >> money;
-
-			if (accounts[i]->GetMoney() < money) {
-				cout << "잔액이 부족합니다." << endl << endl;
-				return;
+			try
+			{
+				accounts[i]->SetWithdrawMoney(money);
 			}
-
-			accounts[i]->SetWithdrawMoney(money);
+			catch (AccountException & expn)
+			{
+				cout << "잔액이 부족합니다." << endl << endl;
+				--i;
+				continue;
+			}
 			cout << "출금 완료" << endl;
 			return;
 		}

@@ -34,6 +34,12 @@ void Account::SetDepositMoney(int newMoney)
 //출금 하다
 void Account::SetWithdrawMoney(int money)
 {
+	if (balance < money || money< 0)
+	{
+		WithdrawException expn(money);
+		throw expn;
+	}
+
 	balance -= money;
 }
 

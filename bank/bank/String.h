@@ -3,14 +3,30 @@
 class String
 {
 private:
-	int strLen; //문자열 길이
+	size_t strLen; //문자열 길이
+	/*
+	// C4267.cpp
+	// compile by using: cl /W4 C4267.cpp
+	void Func1(short) {}
+	void Func2(int) {}
+	void Func3(long) {}
+	void Func4(size_t) {}
+
+	int main() {
+	size_t bufferSize = 10;
+	Func1(bufferSize);   // C4267 for all platforms
+	Func2(bufferSize);   // C4267 only for 64-bit platforms
+	Func3(bufferSize);   // C4267 only for 64-bit platforms
+	Func4(bufferSize);   // OK for all platforms
+	*/
+
 	char* str; //문자열 배열 주소.
 public:
 	//기본 생성자
 	String();
 	//매개변수가 있는 생성자
 	String(const char* str);
-	String(int len);
+	String(const int len);
 	
 	//복사 생성자
 	String(const String& ref);

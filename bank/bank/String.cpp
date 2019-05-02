@@ -11,7 +11,7 @@ String::String(const char* str)
 	this->str = new char[strLen];
 	strcpy_s(this->str, strLen, str);
 }
-String::String(int len)
+String::String(const int len)
 {
 	strLen = len;
 
@@ -45,7 +45,7 @@ String::~String()
 //+=
 String& String::operator+=(const String& ref)
 {
-	int catLen = strlen(str) + strlen(ref.str) + 1;
+	size_t catLen = strlen(str) + strlen(ref.str) + 1;
 	char* temp = new char[catLen];
 	strcpy_s(temp, strlen(str) + 1, str);
 	strcat_s(temp, catLen, ref.str);
@@ -69,7 +69,7 @@ bool String::operator==(const String& ref)
 //+
 String& String::operator+(const String& ref)
 {
-	int catLen = strlen(str) + strlen(ref.str) + 1;
+	size_t catLen = strlen(str) + strlen(ref.str) + 1;
 	char* temp = new char[catLen];
 	strcpy_s(temp, strlen(str) + 1, str);
 	strcat_s(temp, catLen, ref.str);

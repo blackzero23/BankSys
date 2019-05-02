@@ -33,6 +33,15 @@
     <ClCompile Include="String.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="DepositException.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="WithdrawException.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MakeAccountException.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Account.h">
@@ -53,5 +62,20 @@
     <ClInclude Include="String.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="DepositException.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="WithdrawException.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AccountException.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MakeAccountException.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram3.cd" />
   </ItemGroup>
 </Project>

@@ -11,6 +11,12 @@ HighCreditAccount::HighCreditAccount(int newID, int creditRating,
 
 void HighCreditAccount::SetDepositMoney(int newMoney)
 {
+	if (newMoney < 0)
+	{
+		DepositException expn(newMoney);
+		throw expn;
+	}
+
 	balance += newMoney + static_cast<int>(balance * (interestRate + AddinterestRate));
 }
 

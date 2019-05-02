@@ -147,17 +147,27 @@
     <ClCompile Include="Account.cpp" />
     <ClCompile Include="AccountHandler.cpp" />
     <ClCompile Include="bankingSystem01.cpp" />
+    <ClCompile Include="DepositException.cpp" />
     <ClCompile Include="HighCreditAccount.cpp" />
+    <ClCompile Include="MakeAccountException.cpp" />
     <ClCompile Include="NormalAccount.cpp" />
     <ClCompile Include="String.cpp" />
+    <ClCompile Include="WithdrawException.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Account.h" />
+    <ClInclude Include="AccountException.h" />
     <ClInclude Include="AccountHandler.h" />
+    <ClInclude Include="DepositException.h" />
     <ClInclude Include="HighCreditAccount.h" />
+    <ClInclude Include="MakeAccountException.h" />
     <ClInclude Include="MiniBankingCommonDecl.h" />
     <ClInclude Include="NormalAccount.h" />
     <ClInclude Include="String.h" />
+    <ClInclude Include="WithdrawException.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram3.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

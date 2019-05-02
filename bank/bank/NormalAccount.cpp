@@ -11,6 +11,12 @@ NomalAccount::NomalAccount(const int newID,const String newCusName)
 
 void NomalAccount::SetDepositMoney(const int newMoney)
 {
+	if (newMoney < 0)
+	{
+		DepositException expn(newMoney);
+		throw expn;
+	}
+
 	balance += newMoney + static_cast<int>(balance * interestRate);	
 }
 

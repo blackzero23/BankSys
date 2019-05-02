@@ -24,6 +24,9 @@ public:
 	explicit AccountHandler(const AccountHandler& bbank); //복사 생성자
 	//은행 소멸
 
+	void InitData();//은행 데이터 초기화.
+
+	void LoadCusListFromFile();
 	
 	AccountHandler& operator=(const AccountHandler& rhs);//단순 대입 연산자.
 
