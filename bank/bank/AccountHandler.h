@@ -26,7 +26,7 @@ public:
 
 	void InitData();//은행 데이터 초기화.
 
-	void LoadCusListFromFile();//초기화 함수
+
 
 	void SaveCusInfoList();//백업 함수
 

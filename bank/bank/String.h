@@ -58,6 +58,7 @@ public:
 	}*/
 
 	friend ostream& operator<<(ostream& os, const String str);
+
 	friend istream& operator>>(istream& is, String& arr);
 
 	/*String& operator<< (String& (*fp)(String& strr))

@@ -36,25 +36,6 @@ void AccountHandler::InitData()
 	LoadCusInfoList();//계좌 구분없이 총 계좌 정보 로드.
 }
 
-void AccountHandler::LoadCusListFromFile() //초기화 읽어오기
-{
-	fstream fp;//파일을 열고
-	fp.open("AccountCusInfo.txt", ios::out);//파일 을 읽는다
-	//ios::ate 만약 파일이 존재한다면 파일 끝으로 이동
-	//데이터는 아무데나 쓰기 가능
-	if (fp.fail())
-	{
-		cout << "파일 여는데 실패 하였습니다." << endl;
-		exit(1);
-	}
-
-	fp.close();
-	//파일을 열고
-	//파일 을 읽는다
-	// 저장되어있는 고객수를 읽어온다.
-	//읽어온 고객수만큼 계좌 클래스 크기만큼 읽고 객체 생성하고
-	// 끝가지 또 읽는다.
-}
 
 void AccountHandler::SaveCusInfoList() //백업 함수.
 {
