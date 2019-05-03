@@ -59,22 +59,22 @@ void AccountHandler::LoadCusListFromFile() //초기화 읽어오기
 void AccountHandler::SaveCusInfoList() //백업 함수.
 {
 
-	ofstream fp("AccountCusInfo.txt",ios::in|ios::out);
+	ofstream fp("AccountCusInfo.txt");
 
 	if (!fp.is_open()) {
 		cout << "파일을 열수 없습니다." << endl;
-		fp.clear();
-		exit(1);
+		//fp.clear();
+		//exit(1);
 	}
 	
 	fp << accCnt<<endl;
 
 	for (int i = 0; i < accCnt; i++) {
 		
-		fp << accounts[i]->checkIsNomalAccout() //노말 체크
-			<< accounts[i]->GetAccID() //계좌 번호
-			<< accounts[i]->GetMoney() //잔액
-			<< accounts[i]->GetAccName(); //이름
+		fp << accounts[i]->checkIsNomalAccout()<<' ' //노말 체크
+			<< accounts[i]->GetAccID() << ' ' //계좌 번호
+			<< accounts[i]->GetMoney() << ' ' //잔액
+			<< accounts[i]->GetAccName() << ' '; //이름
 		if (accounts[i]->checkIsNomalAccout())//노말체크 노말이면 뛰우고 끝내고
 			fp << endl;
 		else//아니면 신용등급 적어준다.
@@ -91,8 +91,7 @@ void AccountHandler::LoadCusInfoList() //복구함수
 	
 	if (!fp.is_open())
 	{
-		cout << "파일을 열수 없습니다." << endl;
-		exit(1);
+		//cout << "파일을 열수 없습니다." << endl;
 	}
 	fp >> accCnt;//갯수 받고
 	
@@ -323,16 +322,15 @@ void AccountHandler::DepositMoney(void)
 				--i;
 				continue;
 			}
-
-
+						
 			cout << "입금 완료" << endl;
+			SaveCusInfoList();//백업
 			return;
 		}
-		else
-			cout << "잘못된 계좌정보입니다." << endl;
 	}
+	cout << "잘못된 계좌정보입니다." << endl;
 
-	SaveCusInfoList();//백업
+	
 }
 //출금
 void AccountHandler::WithdrawMoney(void)
@@ -367,13 +365,14 @@ void AccountHandler::WithdrawMoney(void)
 				continue;
 			}
 			cout << "출금 완료" << endl;
+			SaveCusInfoList();//백업
 			return;
 		}
 		else
 			cout << "잘못된 계좌정보입니다." << endl;
 	}
 
-	SaveCusInfoList();//백업
+	
 }
 
 //전체 고객 계좌 정보 조회 

@@ -1,45 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Account">
-    <Position X="0.75" Y="1.75" Width="1.5" />
+    <Position X="0.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>JEAAAAAAgAAAAAAAAAAKIAQIgAAAAAAAAAEAAAAAAEA=</HashCode>
+      <HashCode>JEAAAAAAgQAAAAAAAAAKIAQIgAAAAAAAAAEAQAAAAEA=</HashCode>
       <FileName>Account.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AccountHandler">
-    <Position X="8" Y="0.5" Width="1.5" />
+  <Class Name="AccountException">
+    <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAJAAAAAAEAAAAAAAAAAGCCIAIEAAACAAAAgQAACAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AccountException.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AccountHandler">
+    <Position X="9.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AALAAAAAAEAAAAAAAEAAOCCIAIEAAAKAAAAgQAACAAA=</HashCode>
       <FileName>AccountHandler.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="accounts" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="HighCreditAccount">
-    <Position X="6" Y="2.75" Width="1.5" />
+  <Class Name="DepositException">
+    <Position X="7.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAgAAAAAAAAEAAIAAAIAAAAAAAAAAEAABAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQgAAAAAAAAAAAAQAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DepositException.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HighCreditAccount">
+    <Position X="2.25" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgQAAAAAAAEAAIAAAIAAAAAAAAAAEQABAAAA=</HashCode>
       <FileName>HighCreditAccount.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NomalAccount">
-    <Position X="3.25" Y="2.75" Width="1.5" />
+  <Class Name="MakeAccountException">
+    <Position X="4" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAiAAAAAAAAAAAIQAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAACAAAQAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MakeAccountException.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NomalAccount">
+    <Position X="2.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAiQAAAAAAAAAAIQAAAAAAAAABgAAAAAAAAAA=</HashCode>
       <FileName>NormalAccount.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="String" Collapsed="true">
-    <Position X="7.75" Y="5" Width="1.5" />
+  <Class Name="String">
+    <Position X="4.5" Y="4.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAQAAAAQAAAAAAACAABAAgAAAAgAA=</HashCode>
       <FileName>String.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="WithdrawException">
+    <Position X="5.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAABEAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>WithdrawException.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Typedef Name="ACOUNT_PTR" Collapsed="true">
-    <Position X="0.5" Y="0.5" Width="2" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AccountHandler.h</FileName>

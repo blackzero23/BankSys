@@ -67,5 +67,5 @@ void HighCreditAccount::ShowAccountInfo() const
 
 HighCreditAccount::~HighCreditAccount()
 {
-	cout << "½Å¿ë °èÁÂ ¼Ò¸ê" << endl;
+	//cout << "½Å¿ë °èÁÂ ¼Ò¸ê" << endl;
 }
