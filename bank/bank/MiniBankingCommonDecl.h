@@ -4,12 +4,13 @@
 using namespace std;
 
 #include<iostream>
+#include<cstdlib>
 #include <ctype.h>
 #include <cstring>
 #include <fstream>
 #include"String.h"
 
-
+#include"AccountTemplete.h"
 #include "Account.h"
 #include "NormalAccount.h"
 #include "HighCreditAccount.h"

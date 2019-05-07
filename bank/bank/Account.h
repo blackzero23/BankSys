@@ -18,6 +18,7 @@ public:
 
 	//계좌 초기화
 
+	//생성자
 	Account();
 	Account(int newID, String newCusName);
 	Account(int newID,int newMoney ,String newCusName);
@@ -30,8 +31,10 @@ public:
 
 	//입금하다.
 	virtual void SetDepositMoney(int newMoney);
+
 	//출금하다.
 	void SetWithdrawMoney(int money);
+	
 	//계좌번호 확인(비교)
 	bool CheckAccountID(int checkAccountId);
 	//계좌번호 정보

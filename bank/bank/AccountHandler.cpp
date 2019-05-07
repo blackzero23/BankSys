@@ -11,11 +11,16 @@ enum { NORMAL = 1, CREDIT = 2 };
 
 AccountHandler::AccountHandler() :accCnt(0)
 {
-	accounts = new ACOUNT_PTR[50];
+//	accounts = new AccountTemplete[50];
+}
+
+AccountHandler::AccountHandler(int len) :accCnt(len)
+{
+	//accounts = new ACOUNT_PTR[len];
 }
 
 
-
+/*
 AccountHandler::AccountHandler(const AccountHandler& rhs) : accCnt(rhs.accCnt)//복사 생성자.
 {
 	
@@ -30,6 +35,7 @@ AccountHandler::AccountHandler(const AccountHandler& rhs) : accCnt(rhs.accCnt)//
 
 	}
 }
+*/
 
 void AccountHandler::InitData()
 {
@@ -105,7 +111,7 @@ void AccountHandler::LoadCusInfoList() //복구함수
 
 
 
-
+/*
 AccountHandler& AccountHandler::operator=(const AccountHandler& rhs)
 {
 
@@ -124,7 +130,7 @@ AccountHandler& AccountHandler::operator=(const AccountHandler& rhs)
 
 	return *this;
 }
-
+*/
 AccountHandler::~AccountHandler()
 {
 	if (accCnt != 0)
@@ -145,7 +151,7 @@ ACOUNT_PTR& AccountHandler::operator[](int idx)
 	return  accounts[idx];
 }
 
-ACOUNT_PTR& AccountHandler::operator[](int idx) const
+ACOUNT_PTR AccountHandler::operator[](int idx) const
 {
 	if (idx < 0 || idx >= accCnt)
 	{
@@ -163,9 +169,8 @@ void AccountHandler::ShowBankMenu(void)
 	cout << "1. 계좌개설" << endl;
 	cout << "2. 입    금" << endl;
 	cout << "3. 출    금" << endl;
-	cout << "4. 전체출력" << endl;
-	cout << "5. 복사 생성자 확인" << endl;
-	cout << "6. 종    료" << endl;
+	cout << "4. 전체출력" << endl;	
+	cout << "5. 종    료" << endl;
 }
 
 void AccountHandler::ShowAccountKindMenu(void)
@@ -339,7 +344,7 @@ void AccountHandler::WithdrawMoney(void)
 			{
 				accounts[i]->SetWithdrawMoney(money);
 			}
-			catch (AccountException & expn)
+			catch (AccountException& expn)
 			{
 				cout << "잔액이 부족합니다." << endl << endl;
 				--i;

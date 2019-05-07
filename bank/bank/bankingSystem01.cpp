@@ -3,7 +3,7 @@
 using namespace std;
 
 // 메뉴용 열거자
-enum { MAKE = 1, DEPOSIT, WITHDRAW, INQUIRE,COPY ,EXIT };
+enum { MAKE = 1, DEPOSIT, WITHDRAW, INQUIRE ,EXIT };
 
 
 
@@ -46,14 +46,7 @@ int main(void)
 		case INQUIRE:
 			KoreaBank->GetAccountInfoAll();
 			break;
-		case COPY:
-
-			*CopyKorea = *KoreaBank;
-			CopyKorea->MakeAccount();
-			CopyKorea->GetAccountInfoAll();
-			
-		break;
-		
+				
 		case EXIT:		
 			
 			delete CopyKorea;

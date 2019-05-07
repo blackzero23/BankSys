@@ -13,13 +13,14 @@ const int ACCOUNT_MAX = 100; //계좌 최대 개설수.
 class AccountHandler
 {
 private:
-	ACOUNT_PTR* accounts; //계좌들
+	AccountTemplate<ACOUNT_PTR> accounts; //계좌들
 	//이렇게 선언된것이 잘못될 가능성 매우 높음.
 
 	int accCnt; //계좌 개설 수.
 public:
 	//은행 초기화
 	AccountHandler();
+	AccountHandler(int len);
 
 	explicit AccountHandler(const AccountHandler& bbank); //복사 생성자
 	//은행 소멸
@@ -32,8 +33,7 @@ public:
 
 	void LoadCusInfoList();//복구함수
 	
-	AccountHandler& operator=(const AccountHandler& rhs);//단순 대입 연산자.
-
+	//소멸자
 	~AccountHandler();
 
 
@@ -41,7 +41,7 @@ public:
 
 	ACOUNT_PTR& operator[] (int idx);
 
-	ACOUNT_PTR& operator[] (int idx) const;
+	ACOUNT_PTR operator[] (int idx) const;
 
 	//전체메뉴 오픈
 	void ShowBankMenu(void);
@@ -64,6 +64,6 @@ public:
 	void DelAccount(void);
 
 };
-
+//AccountHandler& operator=(const AccountHandler& rhs);//단순 대입 연산자.
 
 #endif // !1
