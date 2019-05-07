@@ -48,5 +48,5 @@ void NomalAccount::ShowAccountInfo() const
 
 NomalAccount::~NomalAccount()
 {
-	//cout << "º¸Åë°èÁÂ ¼Ò¸ê" << endl;
+
 }

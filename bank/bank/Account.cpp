@@ -96,5 +96,5 @@ void Account::ShowAccountInfo() const
 
 Account::~Account()
 {
-	//cout << "°èÁÂ ¼Ò¸ê" << endl;
+
 }

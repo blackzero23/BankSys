@@ -20,23 +20,6 @@ AccountHandler::AccountHandler(int len) :accCnt(len)
 }
 
 
-/*
-AccountHandler::AccountHandler(const AccountHandler& rhs) : accCnt(rhs.accCnt)//복사 생성자.
-{
-	
-	if (rhs.accCnt != 0) {
-		accounts = new ACOUNT_PTR[50];
-		for (int i = 0; i < rhs.accCnt; i++) {
-			this->accounts[i] = new Account(
-				rhs.accounts[i]->GetAccID()
-				, rhs.accounts[i]->GetMoney()
-				, rhs.accounts[i]->GetAccName());
-		}
-
-	}
-}
-*/
-
 void AccountHandler::InitData()
 {
 	LoadCusInfoList();//계좌 구분없이 총 계좌 정보 로드.
@@ -111,26 +94,7 @@ void AccountHandler::LoadCusInfoList() //복구함수
 
 
 
-/*
-AccountHandler& AccountHandler::operator=(const AccountHandler& rhs)
-{
 
-	this->accCnt = rhs.accCnt;
-
-	if (rhs.accCnt != 0) {
-		accounts = new ACOUNT_PTR[50];
-		for (int i = 0; i < rhs.accCnt; i++) {
-			this->accounts[i] = new Account(
-				rhs.accounts[i]->GetAccID()
-				, rhs.accounts[i]->GetMoney()
-				, rhs.accounts[i]->GetAccName());
-		}
-	}
-
-
-	return *this;
-}
-*/
 AccountHandler::~AccountHandler()
 {
 	if (accCnt != 0)
