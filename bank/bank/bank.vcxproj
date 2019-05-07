@@ -158,6 +158,7 @@
     <ClInclude Include="Account.h" />
     <ClInclude Include="AccountException.h" />
     <ClInclude Include="AccountHandler.h" />
+    <ClInclude Include="AccountTemplete.h" />
     <ClInclude Include="DepositException.h" />
     <ClInclude Include="HighCreditAccount.h" />
     <ClInclude Include="MakeAccountException.h" />

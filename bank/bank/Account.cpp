@@ -24,6 +24,15 @@ Account::Account(Account& ac)
 	cusName = ac.cusName;
 }
 
+/*
+Account& Account::operator=(const Account& ac)
+{
+	// TODO: 여기에 반환 구문을 삽입합니다.
+	*this = ac;
+
+	return *this;
+}
+*/
 bool Account::checkIsNomalAccout()
 {
 	return true;
