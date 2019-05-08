@@ -29,7 +29,7 @@ void AccountHandler::InitData()
 void AccountHandler::SaveCusInfoList() //백업 함수.
 {
 
-	ofstream fp("AccountCusInfo.txt");
+	ofstream fp("AccountCusInfo.txt"); //새로 쓴다.
 
 	if (!fp.is_open()) {
 		cout << "파일을 열수 없습니다." << endl;
