@@ -11,7 +11,6 @@ int main(void)
 {
 
 	AccountHandler* KoreaBank = new AccountHandler();//ACCOUNT handler
-	AccountHandler* CopyKorea = new AccountHandler();
 
 	int choice;
 	KoreaBank->InitData(); //ÃÊ±âÈ­
@@ -45,11 +44,8 @@ int main(void)
 			break;
 		case INQUIRE:
 			KoreaBank->GetAccountInfoAll();
-			break;
-				
-		case EXIT:		
-			
-			delete CopyKorea;
+			break;	
+		case EXIT:	
 			delete KoreaBank;
 			return 0;
 		default:
