@@ -6,6 +6,7 @@ using namespace std;
 //신용등급 열거자
 enum { LEVEL_A = 7, LEVEL_B = 4, LEVEL_C = 2 };
 
+
 //계좌 메뉴용 열거자
 enum { NORMAL = 1, CREDIT = 2 };
 
