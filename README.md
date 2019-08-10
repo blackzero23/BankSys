@@ -1,4 +1,5 @@
-#BankSystem
+##1.BankSystem
+==
 은행 관리 시스템
 
 ##무엇인가
