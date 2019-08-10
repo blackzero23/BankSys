@@ -1,4 +1,4 @@
-##1.BankSystem
+1.BankSystem
 ==
 은행 관리 시스템
 
