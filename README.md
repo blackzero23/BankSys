@@ -21,4 +21,11 @@
 
 4.2Projecd 구성도
 -----------
+![image](https://user-images.githubusercontent.com/49605999/62817340-db81ed80-bb6f-11e9-9147-97b8f289d479.png)
+
+
+5.사용 방법
+==
+
+
 
