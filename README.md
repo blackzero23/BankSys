@@ -31,6 +31,7 @@
 
 숫자 입력을 통해 각 기능들을 사용 할수 있으며
 범위 외의 숫자나 문자들은 예외 처리를 통해 아래의 그림과 같은 예외를 출력한다.
+
 ![image](https://user-images.githubusercontent.com/49605999/62817376-7ed30280-bb70-11e9-967d-10dbd6a42eeb.png)
 
 
